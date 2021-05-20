@@ -1,0 +1,25 @@
+{
+  "name": "betty-assignment",
+  "version": "1.0.0",
+  "description": "Technical task from Betty Blocks",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/papadjaristey/betty-assignment.git"
+  },
+  "author": "papadjaristey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/papadjaristey/betty-assignment/issues"
+  },
+  "homepage": "https://github.com/papadjaristey/betty-assignment#readme",
+  "dependencies": {
+    "testcafe": "^1.14.2"
+  }
+}

@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "test"
+    "test": "testcafe chrome tests"
   },
   "repository": {
     "type": "git",

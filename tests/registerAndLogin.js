@@ -15,9 +15,9 @@ test('As a new customer I want to register a new account, so that I can use the 
         .typeText(registerPage.emailAddressInput, userInfo.eAddress)
         .typeText(registerPage.passwordInput, userInfo.pwd)
         .click(registerPage.submitButton)
-        .expect(loginPage.createdMessage.exists).ok('Account was not created')
+        .expect(loginPage.createdMessage.exists).ok('Account not created')
         .typeText(loginPage.emailAddressInput, userInfo.eAddress)
         .typeText(loginPage.passwordInput, userInfo.pwd)
-        .click(loginPage.submitButton)     
-        .expect(mainPage.getWelcomeHeader(userInfo.fName, userInfo.lName).exists).ok('Login Failed');
+        .click(loginPage.submitButton)
+        .expect(mainPage.getWelcomeHeader(userInfo.fName, userInfo.lName).exists).ok('Login failed')
 });

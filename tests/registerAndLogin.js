@@ -3,10 +3,10 @@ import {loginPage} from '../pages/login';
 import {mainPage} from '../pages/main';
 import {userInfo} from '../config';
 
-fixture `Story 1`
+fixture `As a new customer I want to register a new account, so that I can use the application`
     .page `https://ui-test-app.betty.app/login`;
 
-test('As a new customer I want to register a new account, so that I can use the application', async t => {
+test('Happy path test', async t => {
     t.timeStamp = Date.now();
     await registerPage.registerNewUser(t.timeStamp);
     await t

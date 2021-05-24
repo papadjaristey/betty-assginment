@@ -3,7 +3,7 @@ import {loginPage} from '../pages/login';
 import {mainPage} from '../pages/main';
 import {Selector} from 'testcafe'
 
-fixture `Story 3`
+fixture `As a user I want to change my avatar, so that I can personalize my account`
     .page `https://ui-test-app.betty.app/login`;
 
 test
@@ -12,7 +12,7 @@ test
         await registerPage.registerNewUser(t.timeStamp);
         await loginPage.login(t.timeStamp);
     })
-    ('As a user I want to change my avatar, so that I can personalize my account', async t => {
+    ('Happy path test', async t => {
         await t
             .click(mainPage.myAccountButton)
             .setFilesToUpload(mainPage.uploader, [

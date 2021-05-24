@@ -3,7 +3,7 @@ import {loginPage} from '../pages/login';
 import {mainPage} from '../pages/main';
 import {userInfo} from '../config';
 
-fixture `Story 2`
+fixture `As a new customer I want my account to be protected with a password, so that only people who know the password can access my account`
     .page `https://ui-test-app.betty.app/login`;
 
 test
@@ -12,7 +12,7 @@ test
         await registerPage.registerNewUser(t.ctx.timeStamp);
         
     })
-    ('As a new customer I want my account to be protected with a password, so that only people who know the password can access my account', async t => {
+    ('Happy path test', async t => {
         t.timeStamp = Date.now();
         await t
             .typeText(loginPage.emailAddressInput, userInfo.getEmailAddress(t.ctx.timeStamp))

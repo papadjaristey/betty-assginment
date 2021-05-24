@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "testcafe chrome tests"
+    "test": "testcafe chrome tests",
+    "test:headless": "testcafe chrome:headless --window-size='1920,1080'"
   },
   "repository": {
     "type": "git",

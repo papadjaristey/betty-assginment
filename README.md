@@ -5,13 +5,12 @@ Project contatins testing coverage of 3 user stories on https://ui-test-app.bett
 * As a new customer I want my account to be protected with a password, so that only people who know the password can access my account
 * As a user I want to change my avatar, so that I can personalize my account
 
----
-
 ## Table of contents
 * [Installation and Usage](#installation-and-usage)
 * [Test Cases](#test-cases)
-
----
+   * [Story 1](#story-1)
+   * [Story 2](#story-2)
+   * [Story 3](#story-3)
 
 ## Installation and Usage
 ### Prerequisites
@@ -22,40 +21,133 @@ Node.js installed (https://nodejs.org/)
 - Run 'npm i' command
 - Run 'npm run test' command
 
----
-
 ## Test cases
-### Story 1 - As a new customer I want to register a new account, so that I can use the application
+### Story 1 
+As a new customer I want to register a new account, so that I can use the application
 
-Preconditions:
-    * Supported browser is installed
-    * https://ui-test-app.betty.app/login is accessible
+#### Preconditions:
+```
+- Supported browser is installed
+- https://ui-test-app.betty.app/login is accessible
+- User from Test Data is not registered
+```
+#### Test Data:
+```
+First Name: Random
+Last Name: Jack
+E-mail: jack@abc.com
+Password: MyPwd123
+```
 
 - *Step 1*
   - Open link https://ui-test-app.betty.app/login in supported browser
 - *Expected result*
-  - Login page is displayed
+  - **Login page** is displayed
+---
 - *Step 2*
-  -  Click "REGISTER NEW ACCOUNT" button on "Login flow" form
-- *Expected Result*
-  -  Create new account page is displayed (https://ui-test-app.betty.app/new-account)
+  - Click "REGISTER NEW ACCOUNT" button on **Login flow** form
 - *Expected result*
+  -  Create new account page is displayed (https://ui-test-app.betty.app/new-account)
+---
 - *Step 3*
-  - Enter <valid value> into First Name field
-  - Enter <valid value> into Last Name field
-  - Enter Proper E-mail address in format abc@example.com into Email Address field
-  - Enter Proper password that meets following requirements - contain 8 characters, 1 lowercase character, 1 upper case character, and 1 digit and into Password field
-  - Click CREATE ACCOUNT button
+  - Enter First Name from _Test Data_ into **First Name** field
+  - Enter Last Name Name from _Test Data_ into **Last Name** field
+  - Enter E-mail from _Test Data_ which corresponds to format - abc@example.com into **Email Address** field
+  - Enter Password from _Test Data_ which meets following requirements - contain 8 characters, 1 lowercase character, 1 upper case character, and 1 digit into **Password** field
+  - Click "CREATE ACCOUNT" button
 - *Expected result*
   - “Account created Your account has been created, you can now login here” message is shown
-  - Login flow form is displayed
+  - **Login flow** form is displayed
+---
 - Step 4
-  - Enter email and password from step 3 into corresponding fields on Login flow form
+  - Enter E-mail and Password from _Test Data_ into corresponding fields on **Login flow** form
   - Click LOGIN button
 - *Expected Result*
   - Account Home page is displayed (https://ui-test-app.betty.app)
-  - Headed with message 'Welcome <User Name>' present on page
+  - Header with message 'Welcome Random Jack' present on page
+---
 
+### Story 2
+As a new customer I want my account to be protected with a password, so that only people who know the password can access my account
 
+#### Preconditions:
+```
+- Supported browser is installed
+- https://ui-test-app.betty.app/login is accessible
+- Registered account with settings from Test Data
+```
+#### Test data:
+```
+E-mail: jack@abc.com
+Password: MyPwd123
+```
+- *Step 1*
+  - Open link https://ui-test-app.betty.app/login in supported browser
+- *Expected result*
+  - **Login page** is displayed
+---
+- *Step 2*
+  - Enter E-mail from _Test Data_ and password that is different from one in the _Test Data_ (e.g "MyPwd1231) into corresponding fields on **Login flow** form
+  - Click LOGIN button
+- *Expected result*
+   - "Wrong Credentials. You've entered a wrong email address and/or password" message is shown
+   - User is still on **Login flow** page
+---
+- *Step 3*
+   - Enter E-mail and Password from _Test Data_ into corresponding fields on **Login flow** form
+   - Click "LOGIN" button
+- *Expected Result*
+  - Account **Home page** is displayed (https://ui-test-app.betty.app)
+  - Header with message 'Welcome Random Jack' present on page
+---   
+### Story 3
+As a user I want to change my avatar, so that I can personalize my account
+
+#### Preconditions:
+```
+- Supported browser is installed
+- https://ui-test-app.betty.app/login is accessible
+- Registered account with settings from Test Data
+```
+#### Test data:
+```
+E-mail: jack@abc.com
+Password: MyPwd123
+Image: ../ryu_avatar.jpg
+```
+- *Step 1*
+  - Open link https://ui-test-app.betty.app/login in supported browser
+- *Expected result*
+  - **Login page** is displayed
+---
+- *Step 2*
+   - Enter E-mail and Password from _Test Data_ into corresponding fields on **Login flow** form
+   - Click "LOGIN" button
+- *Expected Result*
+  - Account **Home page** is displayed (https://ui-test-app.betty.app)
+  - Header with message 'Welcome Random Jack' present on page
+---
+- *Step 3*
+   -  Click "MY ACCOUNT" button on toolbar
+- *Expected Result*
+   - **My Account** page is displayed (https://ui-test-app.betty.app/my-account)
+---
+- *Step 4*
+   - Click "UPLOAD" button on **Change profile image** form
+   - On **File Open** dialog Select Image from _Test Data_ - ryu_avatar.jpg
+   - Click **Open** button
+- *Expected result*
+   -  Chosen file name, file size and file extension (ryu_avatar.jpg, 35KB, .jpeg) are displayed on **Change profile image** form
+---
+- *Step 5*
+   - Click "SAVE CHANGES" button 
+- *Expected result*
+   -  "Success. Profile successfully updated" is shown
+---
+- *Step 6*
+   -  Refresh web page
+- *Expected result*
+   - Avatar is changed to _Test Data_ image
+---
 
 
